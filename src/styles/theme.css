@@ -39,6 +39,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --omni-red: #ff2d2d;
+  --omni-red-dark: #c91424;
+  --omni-burgundy: #9f0f17;
+  --omni-ink: #121214;
+  --omni-soft-bg: #fff5f5;
+  --omni-soft-card: #fff1f1;
+  --omni-soft-border: #ffd0d0;
 }
 
 .dark {
@@ -128,6 +135,10 @@
     @apply bg-background text-foreground;
   }
 
+  body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+  }
+
   /**
   * Default typography styles for HTML elements (h1-h4, p, label, button, input).
   * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
@@ -177,5 +188,43 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+@layer components {
+  .omni-page {
+    background-image: linear-gradient(135deg, #f8fafc 0%, #ffffff 45%, var(--omni-soft-bg) 100%);
+  }
+
+  .omni-header {
+    @apply bg-white/85 backdrop-blur-md border-b;
+    border-color: color-mix(in srgb, var(--omni-ink) 12%, transparent);
+  }
+
+  .omni-hero {
+    background-image: linear-gradient(135deg, #0f0f10 0%, #18181b 55%, #2a0f14 100%);
+  }
+
+  .omni-card {
+    @apply bg-white border rounded-2xl;
+    border-color: color-mix(in srgb, var(--omni-ink) 12%, transparent);
+  }
+
+  .omni-chip {
+    background-color: var(--omni-soft-card);
+    color: var(--omni-red-dark);
+  }
+
+  .omni-primary-button {
+    color: white;
+    background-image: linear-gradient(90deg, var(--omni-red) 0%, var(--omni-red-dark) 100%);
+  }
+
+  .omni-primary-button:hover {
+    background-image: linear-gradient(90deg, var(--omni-red-dark) 0%, var(--omni-burgundy) 100%);
+  }
+
+  .omni-footer {
+    background-color: var(--omni-ink);
   }
 }
