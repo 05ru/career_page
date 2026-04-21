@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import logo from './assets/logo.svg';
 const navItems = [
   { label: 'Структура', href: '#structure' },
   { label: 'Принципы', href: '#principles' },
@@ -105,9 +106,8 @@ const teamStories = [
   <div class="omni-clone">
     <header class="clone-header">
       <div class="container flex items-center justify-between gap-4 py-5">
-        <div class="flex items-center gap-3">
-          <div class="logo-mark">◉</div>
-          <span class="font-semibold tracking-wide text-white">OMNIVERSE</span>
+        <div class="flex items-center">
+          <img :src="logo" alt="Omniverse" class="logo-image" />
         </div>
         <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
           <a v-for="item in navItems" :key="item.href" :href="item.href" class="hover:text-white transition-colors">{{ item.label }}</a>

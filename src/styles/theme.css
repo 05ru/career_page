@@ -246,14 +246,9 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .logo-mark {
-    width: 30px;
+  .logo-image {
     height: 30px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, #ff3939 0%, #a30e16 100%);
-    font-size: 11px;
+    width: auto;
   }
 
   .hero {
