@@ -64,6 +64,41 @@ const jobs = [
   'Product Designer',
   'ML Engineer',
 ];
+
+const teams = ['product', 'engineering', 'analytics', 'design', 'operations'];
+
+const teamStories = [
+  {
+    date: '14 апреля 2026',
+    title: 'Product Discovery Sprint: проверяем гипотезы за 5 дней',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80',
+    alt: 'Команда обсуждает roadmap у стеклянной доски',
+  },
+  {
+    date: '8 апреля 2026',
+    title: 'Платформенная неделя: как engineering ускоряет релизы',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+    alt: 'Инженеры работают за столом с ноутбуками',
+  },
+  {
+    date: '2 апреля 2026',
+    title: 'Data Lab: строим модели персонализации в realtime',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+    alt: 'Аналитик смотрит на дашборд с метриками',
+  },
+  {
+    date: '27 марта 2026',
+    title: 'Design Critique Day: от wireframe до интерфейса',
+    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=900&q=80',
+    alt: 'Дизайнеры обсуждают макеты на большом экране',
+  },
+  {
+    date: '19 марта 2026',
+    title: 'Operations Pulse: как держим SLA на масштабе сети',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+    alt: 'Команда операций в офисе у доски с задачами',
+  },
+];
 </script>
 
 <template>
@@ -125,11 +160,16 @@ const jobs = [
           <p class="eyebrow eyebrow-dark">команды</p>
           <h2>Собираем сильных</h2>
           <div class="bands mt-8">
-            <div>product</div>
-            <div>engineering</div>
-            <div>analytics</div>
-            <div>design</div>
-            <div>operations</div>
+            <div v-for="team in teams" :key="team">{{ team }}</div>
+          </div>
+          <div class="stories-row mt-8" aria-label="Вертикальные сторис команд">
+            <article v-for="story in teamStories" :key="story.title" class="story-card">
+              <img :src="story.image" :alt="story.alt" loading="lazy" class="story-cover">
+              <div class="story-content">
+                <p class="story-date">{{ story.date }}</p>
+                <h3>{{ story.title }}</h3>
+              </div>
+            </article>
           </div>
         </div>
       </section>
